@@ -19,15 +19,15 @@
 
 ## Screen Shots ##
 
-![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen%20shots/Swagger_API.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen_shots/Swagger_API.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen%20shots/Swagger_Authorizations.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen_shots/Swagger_Authorizations.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen%20shots/Swagger_GenerateToken.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen_shots/Swagger_GenerateToken.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen%20shots/Swagger_Decode_Token.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen_shots/Swagger_Decode_Token.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen%20shots/Swagger_Validate_Email.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter-Starter-Kit/blob/main/screen_shots/Swagger_Validate_Email.png?raw=true)
 
 
 
