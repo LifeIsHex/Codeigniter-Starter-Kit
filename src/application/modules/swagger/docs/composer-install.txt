@@ -1,0 +1,2 @@
+composer require zircote/swagger-php ^3.2.0
+composer global require zircote/swagger-php

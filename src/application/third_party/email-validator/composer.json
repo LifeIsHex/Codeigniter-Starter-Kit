@@ -1,0 +1,6 @@
+{
+    "require": {
+        "filp/whoops": "^2.14",
+        "egulias/email-validator": "^3.2"
+    }
+}

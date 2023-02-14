@@ -1,0 +1,5 @@
+{
+    "require": {
+        "mikey179/vfsstream": "^1.6"
+    }
+}

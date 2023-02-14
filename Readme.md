@@ -3,28 +3,33 @@
 
 ## Libraries ##
 
-  * Drag and drop support.
-  * Explorer shell context menu.
-  * Unicode support.
-  * AES 256 EAX encryption\decryption algorithm.
-  * Secure delete source file.
-  * Portable and light.
+  * https://github.com/5112n4/wiredesignz-codeigniter-modular-extensions
+  * https://github.com/zircote/swagger-php
+  * https://github.com/SeunMatt/codeigniter-log-viewer
+  * https://github.com/egulias/EmailValidator
+  * https://github.com/firebase/php-jwt
+  * https://github.com/Synchro/PHPMailer
+  * https://github.com/swiftmailer/swiftmailer
+  * https://github.com/chriskacerguis/codeigniter-restserver
+  * https://github.com/filp/whoops
 
-  
+## CFG ##
+	config.php -> $base_url = 'http://localhost/CI_HMVC_3.13/';
+	routes.php -> $route['default_controller'] = 'logs';
+
 ## Screen Shots ##
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Select%20Operation.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter%20Starter-Kit/blob/main/screen%20shots/Swagger_API.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Main.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter%20Starter-Kit/blob/main/screen%20shots/Swagger_Authorizations.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Loading%20Files.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter%20Starter-Kit/blob/main/screen%20shots/Swagger_GenerateToken.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Enter%20Password.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter%20Starter-Kit/blob/main/screen%20shots/Swagger_Decode_Token.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Encrypting.png?raw=true)
+![Screenshot](https://github.com/LifeIsHex/Codeigniter%20Starter-Kit/blob/main/screen%20shots/Swagger_Validate_Email.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Decrypting.png?raw=true)
 
-![Screenshot](https://github.com/LifeIsHex/FastCryptor/blob/main/screen%20shots/Explorer%20Context%20Menu.png?raw=true)
+
 
 

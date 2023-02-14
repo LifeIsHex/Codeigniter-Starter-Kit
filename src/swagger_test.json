@@ -1,0 +1,989 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Swagger Petstore",
+    "description": "This is a sample Petstore server.  You can find\nout more about Swagger at\n[http://swagger.io](http://swagger.io) or on\n[irc.freenode.net, #swagger](http://swagger.io/irc/).",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:5555/index.php/",
+      "description": "SwaggerHUB API Mocking"
+    },
+    {
+      "url": "http://localhost:5555/sw1/",
+      "description": "SW1"
+    }
+  ],
+  "paths": {
+    "/v1/Auth/{username}": {
+      "post": {
+        "tags": [
+          "Auth"
+        ],
+        "operationId": "fd8b5af23d8d312eb12f91a62857f41b",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "properties": {
+                  "email": {
+                    "description": "Login Email.",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "Login Password.",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/misc/single": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Single File Upload Example",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "image"
+                ],
+                "properties": {
+                  "image": {
+                    "description": "Binary content of file",
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/misc/multiple": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Miltiple File Upload Example",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "properties": {
+                  "images[]": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "binary"
+                    }
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/misc/urlEncodedForm": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "URL Encoded Form Example",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "requestBody": {
+          "description": "Input data format",
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "properties": {
+                  "name": {
+                    "description": "Name",
+                    "type": "string"
+                  },
+                  "status": {
+                    "description": "Status",
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "405": {
+            "description": "Invalid input"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/v1/misc/multipartFormWithFile": {
+      "post": {
+        "tags": [
+          "Misc"
+        ],
+        "summary": "Single File Upload Example",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "name",
+                  "surname",
+                  "image"
+                ],
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "surname": {
+                    "type": "string"
+                  },
+                  "age": {
+                    "type": "string"
+                  },
+                  "mobile": {
+                    "type": "string"
+                  },
+                  "image": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                },
+                "type": "object"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/posts": {
+      "get": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Get Logged in user details",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Post"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Create user",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "requestBody": {
+          "description": "Create Post object",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "userId",
+                  "title",
+                  "body"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created"
+          },
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/posts/{id}": {
+      "put": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Update Full Data",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Create Post object",
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "required": [
+                  "userId",
+                  "title",
+                  "body"
+                ],
+                "properties": {
+                  "userId": {
+                    "type": "string"
+                  },
+                  "title": {
+                    "type": "string"
+                  },
+                  "body": {
+                    "type": "string"
+                  }
+                },
+                "type": "object"
+              }
+            },
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Post"
+              }
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Delete User",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The name that needs to be deleted",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      },
+      "patch": {
+        "tags": [
+          "Posts"
+        ],
+        "summary": "Update User Small Data",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "title",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "body",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/Post"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          },
+          "204": {
+            "description": "No Content"
+          },
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/userByID/{id}": {
+      "get": {
+        "tags": [
+          "Silent"
+        ],
+        "summary": "Get all users list",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "$ref": "#/components/schemas/User"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/v1/users": {
+      "get": {
+        "tags": [
+          "Silent"
+        ],
+        "summary": "Get all users list",
+        "description": "This can only be done by the logged in user.",
+        "operationId": "",
+        "responses": {
+          "400": {
+            "description": "Invalid username/password supplied"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "422": {
+            "description": "Unprocessable Entity"
+          },
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/User"
+                      }
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            }
+          }
+        },
+        "deprecated": false,
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ApiResponse": {
+        "title": "Api response",
+        "description": "Api response",
+        "properties": {
+          "code": {
+            "title": "Code",
+            "description": "Code",
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "title": "Message",
+            "description": "Message",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Auth": {
+        "title": "Auth model",
+        "description": "Auth model",
+        "properties": {
+          "username": {
+            "title": "Username",
+            "description": "Username",
+            "type": "string"
+          },
+          "password": {
+            "title": "Password",
+            "description": "Password",
+            "type": "string",
+            "format": "int64",
+            "maximum": 255
+          }
+        },
+        "type": "object"
+      },
+      "Post": {
+        "title": "Post model",
+        "description": "Post model",
+        "properties": {
+          "userId": {
+            "title": "User ID",
+            "description": "User ID",
+            "type": "integer",
+            "format": "int64"
+          },
+          "id": {
+            "title": "ID",
+            "description": "ID",
+            "type": "integer",
+            "format": "int64"
+          },
+          "title": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "body": {
+            "title": "Body",
+            "description": "Post Body",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "User": {
+        "title": "User model",
+        "description": "User model",
+        "properties": {
+          "id": {
+            "title": "User ID",
+            "description": "User ID",
+            "type": "integer",
+            "format": "int64"
+          },
+          "name": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "username": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "email": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Address"
+          },
+          "phone": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "website": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "company": {
+            "$ref": "#/components/schemas/Company"
+          }
+        },
+        "type": "object"
+      },
+      "Geo": {
+        "title": "Geo model",
+        "description": "Geo model",
+        "properties": {
+          "lat": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "String": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      },
+      "Address": {
+        "title": "Address model",
+        "description": "Address model",
+        "properties": {
+          "street": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "suite": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "city": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "zipcode": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "geo": {
+            "$ref": "#/components/schemas/Geo"
+          }
+        },
+        "type": "object"
+      },
+      "Company": {
+        "title": "Company model",
+        "description": "Company model",
+        "properties": {
+          "name": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "catchPhrase": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          },
+          "bs": {
+            "title": "Title",
+            "description": "Post Title",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    },
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      },
+      "petstore_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "http://petstore.swagger.io/oauth/dialog",
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Misc",
+      "description": "Misc APIs"
+    },
+    {
+      "name": "Posts",
+      "description": "Posts APIs"
+    },
+    {
+      "name": "Silent",
+      "description": "Silent APIs, it doesn`t contain controller name we can call it directly via      method name"
+    },
+    {
+      "name": "Posts",
+      "description": "Operations about Posts",
+      "externalDocs": {
+        "description": "Find out more about store",
+        "url": "http://swagger.io"
+      }
+    },
+    {
+      "name": "Auth",
+      "description": "Everything about your Pets",
+      "externalDocs": {
+        "description": "Find out more",
+        "url": "http://swagger.io"
+      }
+    }
+  ],
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
